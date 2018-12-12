@@ -15,7 +15,7 @@ import FailedPostOptions from 'components/post_view/failed_post_options';
 import PostBodyAdditionalContent from 'components/post_view/post_body_additional_content';
 import PostMessageView from 'components/post_view/post_message_view';
 import ReactionListContainer from 'components/post_view/reaction_list';
-
+import UserReplies from 'components/post_view/user_replies';
 import loadingGif from 'images/load.gif';
 
 const SENDING_ANIMATION_DELAY = 3000;
@@ -214,7 +214,7 @@ export default class PostBody extends React.PureComponent {
         if (isEphemeral) {
             ephemeralPostClass = 'post--ephemeral';
         }
-
+        console.log(`${mentionHighlightClass} ${ephemeralPostClass} ${postClass}`)
         return (
             <div>
                 {comment}
@@ -227,6 +227,10 @@ export default class PostBody extends React.PureComponent {
                     <ReactionListContainer
                         post={post}
                         isReadOnly={this.props.isReadOnly}
+                    />
+                    <UserReplies
+                        replyCount={this.props.replyCount}
+                        handleCommentClick={this.props.handleCommentClick}
                     />
                 </div>
             </div>

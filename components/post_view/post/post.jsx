@@ -281,6 +281,8 @@ export default class Post extends React.PureComponent {
                         <PostBody
                             post={post}
                             handleCommentClick={this.handleCommentClick}
+                            replyCount={this.props.replyCount}
+                            handleCommentClick={this.handleCommentClick}
                             compactDisplay={this.props.compactDisplay}
                             lastPostCount={this.props.lastPostCount}
                             isCommentMention={this.props.isCommentMention}

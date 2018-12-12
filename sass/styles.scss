@@ -17,3 +17,7 @@
 @import 'components/module';
 @import 'layout/module';
 @import 'responsive/module';
+
+#app-content .post--comment {
+    display: none;
+}

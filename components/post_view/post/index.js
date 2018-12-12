@@ -14,10 +14,17 @@ import Post from './post.jsx';
 
 function mapStateToProps(state, ownProps) {
     const detailedPost = ownProps.post || {};
+    let parentPost;
+    let parentPostUser;
+    if (ownProps.post.root_id) {
+        parentPost = getPost(state, ownProps.post.root_id);
+        parentPostUser = parentPost ? getUser(state, parentPost.user_id) : null;
+    }
 
     return {
         post: getPost(state, detailedPost.id),
         lastPostCount: ownProps.lastPostCount,
+        parentPost,
         user: getUser(state, detailedPost.user_id),
         status: getStatusForUserId(state, detailedPost.user_id),
         currentUser: getCurrentUser(state),
